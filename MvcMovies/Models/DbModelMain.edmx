@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MvcMoviesdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BookDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookName" Type="varchar" MaxLength="255" />
+          <Property Name="Author" Type="varchar" MaxLength="255" />
+          <Property Name="Rating" Type="varchar" MaxLength="225" />
+        </EntityType>
+        <EntityType Name="RegisterUsers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="spCreateBookDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BookName" Type="varchar" Mode="In" />
+          <Parameter Name="Author" Type="varchar" Mode="In" />
+          <Parameter Name="Rating" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spDeleteBookDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bkid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spDeleteRegisterUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Surname" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spGetBookDetials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spRegiterUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Surname" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spUpdateBookDetials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bkid" Type="int" Mode="In" />
+          <Parameter Name="BookName" Type="varchar" Mode="In" />
+          <Parameter Name="Author" Type="varchar" Mode="In" />
+          <Parameter Name="Rating" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spUpdateRegisterUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Surname" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spViewAllBookDetials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spViewAllRegisterUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MvcMoviesdbModelStoreContainer">
+          <EntitySet Name="BookDetails" EntityType="Self.BookDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegisterUsers" EntityType="Self.RegisterUsers" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MvcMoviesdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BookDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Author" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RegisterUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookDetails" EntityType="Self.BookDetail" />
+          <EntitySet Name="RegisterUsers" EntityType="Self.RegisterUser" />
+          <FunctionImport Name="spCreateBookDetails">
+            <Parameter Name="BookName" Mode="In" Type="String" />
+            <Parameter Name="Author" Mode="In" Type="String" />
+            <Parameter Name="Rating" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spDeleteBookDetails">
+            <Parameter Name="bkid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spDeleteRegisterUsers">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Surname" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetBookDetials" ReturnType="Collection(MvcMoviesdbModel.spGetBookDetials_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spRegiterUsers">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Surname" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateBookDetials">
+            <Parameter Name="bkid" Mode="In" Type="Int32" />
+            <Parameter Name="BookName" Mode="In" Type="String" />
+            <Parameter Name="Author" Mode="In" Type="String" />
+            <Parameter Name="Rating" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateRegisterUsers">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Surname" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spViewAllBookDetials" ReturnType="Collection(MvcMoviesdbModel.spViewAllBookDetials_Result)" />
+          <FunctionImport Name="spViewAllRegisterUsers" ReturnType="Collection(MvcMoviesdbModel.spViewAllRegisterUsers_Result)" />
+        </EntityContainer>
+        <ComplexType Name="spGetBookDetials_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="BookName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Author" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Rating" Nullable="true" MaxLength="225" />
+        </ComplexType>
+        <ComplexType Name="spViewAllBookDetials_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="BookName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Author" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Rating" Nullable="true" MaxLength="225" />
+        </ComplexType>
+        <ComplexType Name="spViewAllRegisterUsers_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Surname" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MvcMoviesdbModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="BookDetails">
+            <EntityTypeMapping TypeName="MvcMoviesdbModel.BookDetail">
+              <MappingFragment StoreEntitySet="BookDetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegisterUsers">
+            <EntityTypeMapping TypeName="MvcMoviesdbModel.RegisterUser">
+              <MappingFragment StoreEntitySet="RegisterUsers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCreateBookDetails" FunctionName="MvcMoviesdbModel.Store.spCreateBookDetails" />
+          <FunctionImportMapping FunctionImportName="spDeleteBookDetails" FunctionName="MvcMoviesdbModel.Store.spDeleteBookDetails" />
+          <FunctionImportMapping FunctionImportName="spDeleteRegisterUsers" FunctionName="MvcMoviesdbModel.Store.spDeleteRegisterUsers" />
+          <FunctionImportMapping FunctionImportName="spGetBookDetials" FunctionName="MvcMoviesdbModel.Store.spGetBookDetials">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MvcMoviesdbModel.spGetBookDetials_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spRegiterUsers" FunctionName="MvcMoviesdbModel.Store.spRegiterUsers" />
+          <FunctionImportMapping FunctionImportName="spUpdateBookDetials" FunctionName="MvcMoviesdbModel.Store.spUpdateBookDetials" />
+          <FunctionImportMapping FunctionImportName="spUpdateRegisterUsers" FunctionName="MvcMoviesdbModel.Store.spUpdateRegisterUsers" />
+          <FunctionImportMapping FunctionImportName="spViewAllBookDetials" FunctionName="MvcMoviesdbModel.Store.spViewAllBookDetials">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MvcMoviesdbModel.spViewAllBookDetials_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spViewAllRegisterUsers" FunctionName="MvcMoviesdbModel.Store.spViewAllRegisterUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MvcMoviesdbModel.spViewAllRegisterUsers_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

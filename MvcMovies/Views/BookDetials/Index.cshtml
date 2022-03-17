@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MvcMovies.Models.BookDetailsModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+</head>
+<body>
+    <h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-bordered">
+        <tr class=" success" >
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="active" >
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td >
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+
+        <!-- On rows -->
+        
+        
+
+    </table>
+
+    
+
+       
+   
+
+
+    </body>
+</html>
